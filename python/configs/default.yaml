@@ -1,0 +1,68 @@
+project:
+  name: VisionGuard
+  seed: 42
+  device: auto  # auto selects cuda if available, else cpu
+
+preprocessing:
+  image_size: 256
+  image_interpolation: bilinear
+  mask_interpolation: nearest
+  normalize_mean: [0.485, 0.456, 0.406]
+  normalize_std: [0.229, 0.224, 0.225]
+
+datasets:
+  mvtec_ad:
+    root: data/raw/mvtec_ad
+    license: CC BY-NC-SA 4.0
+    priority_categories: [bottle, screw, metal_nut, capsule, cable, hazelnut]
+  visa:
+    root: data/raw/visa
+    license: CC BY 4.0
+    split_csv: split_csv/1cls.csv
+  mvtec_loco:
+    root: data/raw/mvtec_loco_ad
+    license: CC BY-NC-SA 4.0
+  mvtec_ad2:
+    root: data/raw/mvtec_ad_2
+    license: CC BY-NC-SA 4.0
+    public_only: true
+  btad:
+    root: data/raw/btad
+    optional: true
+
+models:
+  autoencoder:
+    latent_dim: 128
+    epochs: 30
+    batch_size: 16
+    learning_rate: 0.001
+  padim:
+    backbone: wide_resnet50_2
+    layers: [layer1, layer2, layer3]
+    reduced_dim: 100
+    covariance_eps: 0.01
+  patchcore:
+    backbone: wide_resnet50_2
+    layers: [layer2, layer3]
+    coreset_ratio: 0.10
+    k_neighbors: 9
+  fastflow:
+    backbone: resnet18
+    flow_steps: 4
+    epochs: 20
+
+evaluation:
+  threshold_policy: val_normal_mean_plus_2_5_std
+  val_holdout_ratio: 0.20
+  aupro_max_fpr: 0.30
+
+experiments:
+  data_efficiency_fractions: [0.10, 0.25, 0.50, 1.00]
+  robustness_corruptions:
+    - gaussian_noise
+    - gaussian_blur
+    - brightness_shift
+    - contrast_shift
+    - jpeg_compression
+    - resize_resample
+  robustness_severities: [1, 3, 5]

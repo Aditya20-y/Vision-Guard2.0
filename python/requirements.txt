@@ -1,0 +1,18 @@
+# VisionGuard Python 3.11 Research Platform Dependencies
+# Supports both CPU-only and CUDA environments (install matching torch wheel for CUDA if available)
+torch>=2.1.0,<2.6.0
+torchvision>=0.16.0,<0.21.0
+numpy>=1.26.0,<2.2.0
+scipy>=1.11.0
+opencv-python-headless>=4.8.0
+Pillow>=10.0.0
+pandas>=2.1.0
+scikit-learn>=1.3.0
+matplotlib>=3.8.0
+plotly>=5.18.0
+streamlit>=1.32.0
+PyYAML>=6.0.1
+tqdm>=4.66.0
+pytest>=8.0.0
+# Optional Anomalib integration (uncomment when installing on Python 3.11 with compatible Lightning)
+# anomalib>=1.1.0

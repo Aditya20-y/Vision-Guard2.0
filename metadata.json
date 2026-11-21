@@ -1,0 +1,6 @@
+{
+  "name": "VisionGuard",
+  "description": "Intelligent Industrial Defect Detection, Anomaly Localization, and Visual Inspection Platform with real Autoencoder, PaDiM, PatchCore, and FastFlow-style engines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

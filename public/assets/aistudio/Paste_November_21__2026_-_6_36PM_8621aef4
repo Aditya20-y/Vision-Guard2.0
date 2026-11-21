@@ -1,0 +1,1245 @@
+# VISIONGUARD — ULTIMATE MASTER DEVELOPMENT PROMPT
+## Autonomous End-to-End Industrial AI Anomaly Detection Platform
+### Complete Software Product | Research System | ML Benchmark | Live Competition Demonstration
+
+You are an autonomous principal machine learning engineer, computer vision researcher, Python software architect, MLOps engineer, data engineer, UI/UX designer, QA engineer, and technical documentation specialist.
+
+You have been assigned to build a complete project named:
+
+# VISIONGUARD
+### Intelligent Industrial Defect Detection, Anomaly Localization and Visual Inspection Platform
+
+Your responsibility is to take the existing VisionGuard repository from its current state to a complete, functional, tested, documented, and competition-ready software product.
+
+This is not a request to create a simple demo or a dashboard with simulated predictions.
+
+Build a real machine learning system that can learn from normal industrial images, identify previously unseen defects, localize suspicious regions, evaluate its performance, and demonstrate its capabilities through a professional web application.
+
+The project must be entirely software-based.
+
+No physical cameras, sensors, robots, or industrial machinery are required.
+
+You have permission to create and modify project files and execute safe development commands within the repository.
+
+Work autonomously, systematically, and incrementally.
+
+Do not stop after generating code. Execute it, test it, identify errors, and fix them.
+
+---
+
+# PART 1 — PROJECT VISION
+
+Build a general-purpose industrial visual anomaly detection platform.
+
+The system must:
+
+1. Learn normal product appearance.
+2. Detect anomalous images.
+3. Localize suspected defects at pixel level.
+4. Generate anomaly heatmaps.
+5. Generate heatmap overlays.
+6. Compare different ML architectures.
+7. Evaluate multiple industrial datasets.
+8. Investigate robustness under image degradation.
+9. Investigate the effect of limited training data.
+10. Provide a live image inspection interface.
+11. Store and visualize real experimental results.
+12. Provide reproducible scientific evidence.
+
+Primary research question:
+
+"How effectively do reconstruction-based and pretrained feature-based anomaly detection methods identify and localize unseen industrial defects across different product categories and datasets, and how does their performance change under limited normal training data and realistic image-quality degradation?"
+
+The project must provide a scientifically defensible answer to this question.
+
+Do not claim that existing algorithms are newly invented.
+
+The contribution is the systematic implementation, comparison, evaluation, and analysis of these methods across controlled experimental conditions.
+
+---
+
+# PART 2 — TECHNOLOGY STACK
+
+Use:
+
+Programming:
+- Python 3.11
+- PyTorch
+- Torchvision
+
+Anomaly detection:
+- Anomalib
+- Custom PyTorch implementations where appropriate
+
+Image processing:
+- OpenCV
+- Pillow
+- NumPy
+
+Data analysis:
+- Pandas
+- Scikit-learn
+
+Visualization:
+- Matplotlib
+- Plotly
+
+Application:
+- Streamlit
+
+Engineering:
+- PyYAML
+- pytest
+- tqdm
+- logging
+- pathlib
+- typing
+- Git
+
+Use compatible package versions.
+
+Inspect the environment before installation.
+
+Do not assume CUDA or an NVIDIA GPU is available.
+
+Support CPU and CUDA execution.
+
+Do not unnecessarily install large dependencies.
+
+Record the installed package versions in the final environment report.
+
+---
+
+# PART 3 — DATASET STRATEGY
+
+Use multiple real industrial anomaly detection datasets.
+
+The datasets must remain independently identifiable, independently configurable, and independently evaluated.
+
+Never blindly merge different datasets into one training set.
+
+## DATASET A — MVTec AD
+
+Official page:
+
+https://www.mvtec.com/research-teaching/datasets/mvtec-ad
+
+Role:
+Primary benchmark.
+
+It contains over 5,000 images across 15 object and texture categories, with normal training samples, normal and anomalous test images, and pixel-precise anomaly masks.
+
+Use all 15 categories where resources allow.
+
+Prioritize initial implementation and validation using:
+
+- bottle
+- screw
+- metal_nut
+- capsule
+- cable
+- hazelnut
+
+Expand to remaining categories after the pipeline is verified.
+
+Respect its CC BY-NC-SA 4.0 license.
+
+## DATASET B — VisA
+
+Official AWS Open Data registry:
+
+https://registry.opendata.aws/visa/
+
+Project documentation:
+
+https://github.com/amazon-research/spot-diff
+
+Role:
+Independent multi-category industrial benchmark.
+
+It contains 10,821 images across 12 object categories, including normal and anomalous samples with image-level and pixel-level annotations.
+
+Use its documented dataset preparation and split protocol.
+
+License: CC BY 4.0 as identified by its official registry.
+
+Implement a dedicated VisA data adapter.
+
+Do not assume its folder layout matches MVTec AD.
+
+## DATASET C — MVTec LOCO AD
+
+Official page:
+
+https://www.mvtec.com/research-teaching/datasets/mvtec-loco-ad
+
+Role:
+Advanced logical and structural anomaly evaluation.
+
+It contains five categories and includes both structural defects and logical anomalies.
+
+Use this dataset to investigate the limitations of appearance-based methods.
+
+Respect CC BY-NC-SA 4.0.
+
+Do not assume every logical anomaly can be accurately localized using pixel-level texture methods.
+
+## DATASET D — MVTec AD 2
+
+Official page:
+
+https://www.mvtec.com/research-teaching/datasets/mvtec-ad-2
+
+Role:
+Advanced robustness and challenging inspection conditions.
+
+Investigate its official public evaluation data and supported evaluation protocol.
+
+The private evaluation data must not be accessed or inferred from.
+
+Use only data that is officially available to the project.
+
+Respect CC BY-NC-SA 4.0.
+
+## OPTIONAL DATASET E — BTAD
+
+Investigate the BeanTech Anomaly Detection dataset.
+
+Use it only if:
+
+- An authoritative source can be verified.
+- The dataset can legally be obtained.
+- Its license and redistribution conditions are documented.
+- Its annotation format can be supported correctly.
+
+Do not block the main project if BTAD access is unavailable.
+
+## DATASET ACQUISITION RULES
+
+Before obtaining any dataset:
+
+1. Verify the official source.
+2. Verify the license.
+3. Verify download availability.
+4. Verify expected disk space.
+5. Record the source URL.
+6. Record acquisition date.
+7. Record the archive checksum where available.
+8. Record dataset version and citation.
+9. Preserve original data.
+10. Never upload restricted datasets to public repositories.
+
+Create a dataset acquisition guide for the user.
+
+Create download scripts only when downloads are officially accessible and permitted.
+
+If access requires a form, account, approval, or manual acceptance, ask the user to complete that step.
+
+Never bypass access restrictions.
+
+Never silently substitute unofficial mirrors.
+
+Never claim a dataset has been downloaded unless the local archive has been verified.
+
+If a dataset is missing, continue building the rest of the system.
+
+---
+
+# PART 4 — DATA ENGINEERING
+
+Create a unified dataset interface with separate adapters.
+
+Required components:
+
+- MVTec AD adapter.
+- VisA adapter.
+- MVTec LOCO AD adapter.
+- MVTec AD 2 adapter.
+- Optional BTAD adapter.
+
+Each adapter must expose a consistent interface for:
+
+- Dataset metadata.
+- Category names.
+- Normal training samples.
+- Validation samples where officially provided.
+- Test samples.
+- Ground-truth masks.
+- Image-level labels.
+- Dataset statistics.
+
+Do not alter official test splits.
+
+Do not mix datasets when calculating benchmark metrics.
+
+Create:
+
+- Dataset discovery.
+- Dataset validation.
+- Image readability checks.
+- Missing annotation detection.
+- Mask alignment checks.
+- Image normalization.
+- Image resizing.
+- Mask resizing with nearest-neighbor interpolation.
+- Reproducible sampling.
+- Data statistics.
+- Dataset visualization.
+
+Store dataset metadata in structured files.
+
+Create an automated dataset verification report.
+
+---
+
+# PART 5 — MACHINE LEARNING MODELS
+
+Implement and compare the following algorithms.
+
+## MODEL 1 — Convolutional Autoencoder
+
+Purpose:
+Reconstruction-based anomaly detection baseline.
+
+Requirements:
+
+- Train on normal images only.
+- Reconstruct input images.
+- Calculate reconstruction error.
+- Generate pixel-level anomaly maps.
+- Generate image-level anomaly scores.
+- Save checkpoints.
+- Support CPU and GPU.
+- Support inference on unseen images.
+
+## MODEL 2 — PaDiM
+
+Use a validated Anomalib implementation where compatible.
+
+Requirements:
+
+- Pretrained feature extraction.
+- Normal patch feature distribution modeling.
+- Mahalanobis-distance anomaly scoring.
+- Pixel-level localization.
+- Checkpoint or artifact persistence.
+- Repeatable inference.
+
+## MODEL 3 — PatchCore
+
+Use a validated Anomalib implementation where compatible.
+
+Requirements:
+
+- Pretrained feature extraction.
+- Feature memory bank.
+- Coreset sampling.
+- Nearest-neighbor anomaly scoring.
+- Pixel-level anomaly maps.
+- Configurable memory bank settings.
+- Saved model artifacts.
+
+Prefer Wide ResNet-50-2 when supported by the selected framework and environment.
+
+## MODEL 4 — FastFlow
+
+Implement as an optional advanced model if compatible with available hardware and time.
+
+Use a validated implementation.
+
+Document the normalizing-flow approach and its inference requirements.
+
+## MODEL MANAGEMENT
+
+Implement a common model interface.
+
+Each model must support:
+
+- Training or fitting.
+- Model saving.
+- Model loading.
+- Prediction.
+- Anomaly score generation.
+- Anomaly map generation.
+- Metadata reporting.
+
+Create a model registry.
+
+Do not silently replace a model with another model if initialization fails.
+
+Report unsupported models clearly.
+
+The initial priority is a working Autoencoder, PaDiM, and PatchCore pipeline.
+
+FastFlow is a secondary priority.
+
+---
+
+# PART 6 — MODEL EVALUATION
+
+Use appropriate image-level and pixel-level metrics.
+
+Required:
+
+- Image AUROC.
+- Pixel AUROC.
+- Image F1-score.
+- Precision.
+- Recall.
+- AUPRO where supported.
+- Inference latency.
+- Model parameter count.
+- Checkpoint size.
+- Memory consumption where measurable.
+
+Use official or well-validated metric implementations where possible.
+
+Verify:
+
+- Ground-truth alignment.
+- Correct label polarity.
+- Normal-image treatment.
+- Score aggregation.
+- Threshold selection.
+- Metric edge cases.
+
+Use continuous scores for AUROC.
+
+For threshold-dependent metrics, establish thresholds using an appropriate held-out normal validation protocol.
+
+Never select thresholds using final test labels.
+
+Report the exact threshold policy.
+
+Do not describe raw anomaly scores as probabilities.
+
+Do not compare incompatible metric implementations without explaining their differences.
+
+---
+
+# PART 7 — RESEARCH EXPERIMENTS
+
+Implement the following controlled experiments.
+
+## EXPERIMENT A — Model Comparison
+
+Compare Autoencoder, PaDiM, PatchCore, and FastFlow where implemented.
+
+Evaluate each independently on the selected categories and datasets.
+
+Report:
+
+- Image AUROC.
+- Pixel AUROC.
+- F1-score.
+- Precision.
+- Recall.
+- AUPRO.
+- Inference latency.
+- Model size.
+- Memory usage.
+
+Use consistent evaluation conditions.
+
+## EXPERIMENT B — Data Efficiency
+
+Use normal training-data fractions:
+
+- 10%
+- 25%
+- 50%
+- 100%
+
+Use deterministic sampling.
+
+Investigate how reduced normal training data affects model performance.
+
+## EXPERIMENT C — Robustness
+
+Apply:
+
+- Gaussian noise.
+- Gaussian blur.
+- Brightness variation.
+- Contrast variation.
+- JPEG compression.
+- Mild image resizing and resampling.
+
+Define reproducible severity levels.
+
+Evaluate clean and corrupted test data separately.
+
+Do not corrupt ground-truth masks.
+
+Report performance degradation.
+
+## EXPERIMENT D — PatchCore Ablations
+
+Investigate:
+
+- Coreset ratio.
+- Memory bank size.
+- Feature extraction layers.
+- Input resolution.
+
+Use controlled settings.
+
+Avoid huge grid searches.
+
+## EXPERIMENT E — Cross-Dataset Generalization
+
+Investigate whether methods and preprocessing pipelines remain effective across datasets.
+
+Do not claim that cross-dataset performance represents a valid standard benchmark if training and evaluation protocols differ.
+
+Clearly distinguish:
+
+- Within-dataset evaluation.
+- Cross-dataset evaluation.
+- Domain-shift evaluation.
+
+## EXPERIMENT F — Category Difficulty Analysis
+
+Identify categories with poor detection and localization performance.
+
+Analyze possible reasons, including:
+
+- Fine-grained defects.
+- Texture variability.
+- Low contrast.
+- Small defect regions.
+- Logical anomalies.
+- Background variation.
+
+Support conclusions with actual examples and metrics.
+
+---
+
+# PART 8 — SCIENTIFIC VALIDITY
+
+This is mandatory.
+
+Follow these principles:
+
+1. Do not train on defective test images.
+2. Do not tune hyperparameters using final test labels.
+3. Keep training, validation, and test roles distinct.
+4. Respect official dataset splits.
+5. Record random seeds.
+6. Record preprocessing.
+7. Record model versions.
+8. Record dataset versions.
+9. Record hardware.
+10. Record failed experiments.
+11. Preserve raw results.
+12. Never fabricate metrics.
+13. Never remove poor results merely to improve the report.
+14. Distinguish exploratory experiments from final benchmark results.
+15. Explain methodological limitations.
+
+If the Autoencoder requires a threshold, establish it using normal validation images.
+
+For methods with built-in anomaly scores, document the score definition and threshold policy.
+
+For LOCO AD logical anomalies, discuss limitations of pixel-wise localization.
+
+Use multiple random seeds only where computational resources permit, and report the number of runs.
+
+---
+
+# PART 9 — ROBUST INFERENCE ENGINE
+
+Develop inference independently from the dashboard.
+
+Input:
+
+- Product image.
+- Dataset/category context.
+- Selected model.
+
+Output:
+
+- Normal/anomalous prediction.
+- Raw anomaly score.
+- Threshold or decision policy.
+- Anomaly heatmap.
+- Heatmap overlay.
+- Reconstructed image where applicable.
+- Inference latency.
+- Model identifier.
+- Preprocessing metadata.
+
+Support:
+
+- PNG.
+- JPG.
+- JPEG.
+
+Validate input images.
+
+Ensure training and inference preprocessing are consistent.
+
+Provide clear messages if a model is not trained.
+
+Never fabricate output.
+
+---
+
+# PART 10 — INDUSTRIAL IMAGE QUALITY ANALYSIS
+
+Add an optional image-quality assessment module.
+
+Detect possible:
+
+- Excessive blur.
+- Poor illumination.
+- Extreme brightness.
+- Extreme contrast.
+- Low resolution.
+- Severe compression artifacts.
+
+Keep image-quality warnings separate from anomaly detection.
+
+Do not confuse a blurry image with a defective product.
+
+Show warnings such as:
+
+"Image quality may affect inspection reliability."
+
+Do not claim a calibrated quality probability unless calibration is implemented and validated.
+
+---
+
+# PART 11 — PROFESSIONAL DASHBOARD
+
+Build a polished enterprise-style Streamlit application.
+
+Design direction:
+
+- Dark industrial interface.
+- Navy or charcoal background.
+- Restrained accent colors.
+- Clear typography.
+- Consistent layout.
+- Professional data visualization.
+- Responsive design.
+- Accessible status indicators.
+- Clean navigation.
+
+Build these pages.
+
+## PAGE 1 — Executive Overview
+
+Show:
+
+- Project summary.
+- System health.
+- Available datasets.
+- Available trained models.
+- Completed experiments.
+- Latest verified metrics.
+- Model comparison overview.
+- Recent inspection activity.
+
+## PAGE 2 — Live Inspection
+
+The main demonstration page.
+
+Support:
+
+- Image upload.
+- Category selection.
+- Model selection.
+- Image preview.
+- Run inspection.
+- Prediction.
+- Anomaly score.
+- Heatmap.
+- Overlay.
+- Reconstruction.
+- Inference time.
+- Downloadable inspection report.
+
+Never use simulated inference.
+
+## PAGE 3 — Model Laboratory
+
+Compare models.
+
+Show:
+
+- AUROC.
+- Pixel AUROC.
+- F1.
+- Precision.
+- Recall.
+- AUPRO.
+- Latency.
+- Model size.
+
+Allow category and dataset filtering.
+
+## PAGE 4 — Dataset Explorer
+
+Show:
+
+- Dataset list.
+- Dataset license and provenance.
+- Categories.
+- Sample counts.
+- Normal samples.
+- Anomalous samples.
+- Ground-truth masks.
+- Defect distributions.
+
+## PAGE 5 — Research Experiments
+
+Show:
+
+- Data efficiency.
+- Robustness.
+- Ablations.
+- Category analysis.
+- Cross-dataset comparisons.
+
+## PAGE 6 — Inspection History
+
+Store inspection records locally.
+
+Include:
+
+- Timestamp.
+- Model.
+- Category.
+- Prediction.
+- Anomaly score.
+- Image reference.
+- Inference time.
+
+Avoid storing uploaded images unnecessarily.
+
+Allow deletion of inspection history.
+
+## PAGE 7 — Methodology and About
+
+Explain:
+
+- Problem.
+- Research question.
+- Algorithms.
+- Dataset sources.
+- Evaluation metrics.
+- Limitations.
+- License information.
+- Technical architecture.
+
+All pages must work when some results are unavailable.
+
+Use "Not evaluated" rather than invented metrics.
+
+---
+
+# PART 12 — VISUALIZATION AND REPORTING
+
+Generate publication-quality plots.
+
+Required:
+
+1. Model comparison.
+2. Category-wise AUROC.
+3. Pixel-level localization performance.
+4. Data efficiency curves.
+5. Robustness degradation curves.
+6. PatchCore ablations.
+7. ROC curves.
+8. Precision-recall curves.
+9. Confusion matrices where meaningful.
+10. Training curves.
+11. Original/reconstruction comparisons.
+12. Ground-truth/predicted heatmap comparisons.
+
+Include titles, legends, axes, metric definitions, and experimental configuration.
+
+Save plots under experiments/plots/.
+
+Generate machine-readable results.
+
+Never use invented numbers.
+
+---
+
+# PART 13 — PROJECT ARCHITECTURE
+
+Create a modular structure similar to:
+
+VisionGuard/
+│
+├── configs/
+│   ├── datasets/
+│   ├── models/
+│   ├── training/
+│   ├── evaluation/
+│   └── dashboard.yaml
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── metadata/
+│
+├── src/
+│   ├── data/
+│   │   ├── base_dataset.py
+│   │   ├── mvtec_ad.py
+│   │   ├── visa.py
+│   │   ├── mvtec_loco.py
+│   │   ├── mvtec_ad2.py
+│   │   ├── dataset_registry.py
+│   │   └── validation.py
+│   │
+│   ├── models/
+│   │   ├── autoencoder.py
+│   │   ├── padim.py
+│   │   ├── patchcore.py
+│   │   ├── fastflow.py
+│   │   └── model_registry.py
+│   │
+│   ├── training/
+│   ├── inference/
+│   ├── evaluation/
+│   ├── robustness/
+│   ├── experiments/
+│   ├── reporting/
+│   └── utils/
+│
+├── dashboard/
+│   ├── app.py
+│   ├── pages/
+│   ├── components/
+│   └── assets/
+│
+├── models/
+├── experiments/
+│   ├── results/
+│   ├── plots/
+│   ├── reports/
+│   └── logs/
+│
+├── scripts/
+├── tests/
+├── docs/
+│
+├── requirements.txt
+├── requirements-lock.txt
+├── .gitignore
+└── README.md
+
+Adapt the architecture where justified.
+
+Avoid unnecessary complexity.
+
+---
+
+# PART 14 — COMMAND-LINE WORKFLOWS
+
+Provide commands for:
+
+- Environment verification.
+- Dataset download where permitted.
+- Dataset validation.
+- Dataset exploration.
+- Model training.
+- Model evaluation.
+- Robustness experiments.
+- Ablation experiments.
+- Dashboard launch.
+- Automated testing.
+- Report generation.
+
+Example commands:
+
+python -m src.data.validation
+
+python -m src.training.train --model patchcore --dataset mvtec_ad
+
+python -m src.evaluation.evaluate --dataset mvtec_ad
+
+python -m src.robustness.run
+
+streamlit run dashboard/app.py
+
+pytest -q
+
+Adapt commands to the actual implementation.
+
+Provide a Windows PowerShell startup script.
+
+Provide configuration files so ordinary settings do not require source-code edits.
+
+---
+
+# PART 15 — TESTING AND QUALITY ASSURANCE
+
+Use pytest.
+
+Test:
+
+- Dataset discovery.
+- Dataset adapters.
+- Image reading.
+- Mask reading.
+- Preprocessing.
+- Model initialization.
+- Model output shapes.
+- Training.
+- Checkpoint saving.
+- Checkpoint loading.
+- Inference.
+- Heatmap generation.
+- Metrics.
+- Corruption functions.
+- Result storage.
+- Dashboard data loading.
+- Error handling.
+
+Use synthetic data only for unit tests.
+
+Never treat synthetic data as real benchmark results.
+
+Run:
+
+- Syntax checks.
+- Import checks.
+- Unit tests.
+- Integration tests.
+- Inference smoke tests.
+- Dashboard startup tests.
+- End-to-end tests with actual data and checkpoints where available.
+
+Fix failures.
+
+Report unexecuted tests honestly.
+
+---
+
+# PART 16 — HARDWARE AND PERFORMANCE
+
+Automatically inspect:
+
+- CPU.
+- RAM.
+- NVIDIA GPU.
+- GPU memory.
+- CUDA availability.
+- PyTorch version.
+
+Support CPU-only operation.
+
+Use appropriate batch sizes.
+
+Implement configurable image resolutions.
+
+Avoid memory exhaustion.
+
+Prioritize a small working experiment before large benchmarks.
+
+Never promise inference latency without measuring it.
+
+Record actual runtime.
+
+---
+
+# PART 17 — REPRODUCIBILITY AND MLOPS
+
+Every experiment must record:
+
+- Experiment ID.
+- Timestamp.
+- Dataset.
+- Dataset version.
+- Category.
+- Model.
+- Model configuration.
+- Random seed.
+- Training split.
+- Validation split.
+- Test split.
+- Hardware.
+- Training duration.
+- Evaluation duration.
+- Inference latency.
+- Metrics.
+- Checkpoint path.
+- Experiment status.
+
+Save JSON and CSV results.
+
+Preserve previous experiment records.
+
+Do not overwrite successful checkpoints without confirmation.
+
+Implement structured logging.
+
+---
+
+# PART 18 — SECURITY AND DATA MANAGEMENT
+
+- Never expose secrets.
+- Never commit API keys.
+- Never upload raw datasets.
+- Never upload private user images.
+- Never push to GitHub without explicit approval.
+- Never delete user files without permission.
+- Validate uploaded files.
+- Limit image upload sizes.
+- Avoid arbitrary file execution.
+- Avoid unnecessary network services.
+- Store inspection history locally by default.
+
+Provide a comprehensive .gitignore.
+
+---
+
+# PART 19 — DOCUMENTATION
+
+Create:
+
+README.md
+
+docs/
+    ARCHITECTURE.md
+    METHODOLOGY.md
+    DATASETS.md
+    INSTALLATION.md
+    TRAINING.md
+    EVALUATION.md
+    EXPERIMENTS.md
+    USER_GUIDE.md
+    TROUBLESHOOTING.md
+    COMPETITION_DEMO.md
+    LIMITATIONS.md
+
+Document:
+
+- Project motivation.
+- Research question.
+- Technical architecture.
+- Dataset acquisition.
+- Dataset licensing.
+- Installation.
+- Training.
+- Inference.
+- Evaluation.
+- Experimental protocol.
+- Results.
+- Limitations.
+- Future development.
+
+Documentation must match the real code.
+
+---
+
+# PART 20 — COMPETITION PREPARATION
+
+Prepare:
+
+1. Project abstract.
+2. Problem statement.
+3. Motivation.
+4. Research question.
+5. Literature and algorithm overview.
+6. Dataset justification.
+7. System architecture.
+8. Experimental methodology.
+9. Actual results.
+10. Limitations.
+11. Future improvements.
+12. Five-minute live demonstration.
+13. Ten-minute presentation outline.
+14. Likely judge questions.
+15. Technically accurate answers.
+
+Explain:
+
+- Why normal-only learning is useful.
+- Difference between classification and anomaly detection.
+- Difference between image-level and pixel-level evaluation.
+- Why pretrained feature methods can outperform reconstruction methods.
+- Why domain shift matters.
+- Why logical anomalies are challenging.
+- What the anomaly heatmap represents.
+- Why anomaly scores are not automatically probabilities.
+
+Do not claim state-of-the-art performance unless it is supported by valid comparable results.
+
+---
+
+# PART 21 — DEVELOPMENT PRIORITY
+
+The project must be developed in controlled stages.
+
+Priority 1:
+Working environment, dataset loader, Autoencoder, inference, heatmap, dashboard.
+
+Priority 2:
+PatchCore and PaDiM.
+
+Priority 3:
+Full MVTec AD evaluation.
+
+Priority 4:
+VisA integration and evaluation.
+
+Priority 5:
+Robustness, data efficiency, and ablation experiments.
+
+Priority 6:
+LOCO AD and AD 2 advanced evaluation.
+
+Priority 7:
+FastFlow, optional BTAD, advanced reporting, and presentation polish.
+
+Do not let advanced features prevent delivery of the core system.
+
+Maintain a working version after every major stage.
+
+If the available time is limited, complete the highest-priority stages first.
+
+---
+
+# PART 22 — FINAL ACCEPTANCE CRITERIA
+
+The core platform is complete only when:
+
+[ ] Environment is verified.
+
+[ ] At least one real dataset is validated.
+
+[ ] Dataset loaders work.
+
+[ ] Autoencoder training works.
+
+[ ] PatchCore inference works.
+
+[ ] PaDiM inference works.
+
+[ ] Real checkpoints are saved.
+
+[ ] Checkpoints can be reloaded.
+
+[ ] Real image inference works.
+
+[ ] Image-level anomaly scores are generated.
+
+[ ] Pixel-level anomaly maps are generated.
+
+[ ] Heatmap overlays are generated.
+
+[ ] Evaluation metrics are calculated.
+
+[ ] Results are stored.
+
+[ ] Dashboard starts successfully.
+
+[ ] Image upload and inference work in the dashboard.
+
+[ ] Model comparison is connected to actual results.
+
+[ ] Error handling works.
+
+[ ] Tests are executed.
+
+[ ] Documentation is accurate.
+
+[ ] Live demonstration can be completed.
+
+For each dataset and advanced feature, maintain a separate completion status.
+
+A missing optional dataset must not invalidate the core application.
+
+If an acceptance criterion is blocked, explain why.
+
+Never mark an untested feature as complete.
+
+---
+
+# PART 23 — FINAL DELIVERY REPORT
+
+Provide the following final report.
+
+A. Repository structure.
+
+B. Development environment.
+
+C. Dataset availability and verification.
+
+D. Dataset categories and image counts.
+
+E. Models implemented.
+
+F. Models successfully trained.
+
+G. Checkpoint locations.
+
+H. Evaluation metrics, with actual measured values.
+
+I. Experiments completed.
+
+J. Dashboard pages and tested features.
+
+K. Tests passed, failed, and not run.
+
+L. Hardware and performance.
+
+M. Known limitations.
+
+N. Remaining user actions.
+
+O. Exact application launch commands.
+
+P. Competition demonstration instructions.
+
+Q. Honest readiness assessment.
+
+Separate:
+
+- Completed.
+- Partially completed.
+- Blocked.
+- Not implemented.
+
+Do not invent missing information.
+
+---
+
+# PART 24 — FIRST ACTION
+
+Start by inspecting the existing VisionGuard repository.
+
+Determine:
+
+- What files already exist.
+- What dependencies are installed.
+- Which Python environment is active.
+- What hardware is available.
+- Which datasets are present.
+- How much disk space is available.
+
+Then create a realistic implementation plan based on the available resources.
+
+Build incrementally.
+
+Test each major component.
+
+Fix errors.
+
+Preserve existing user work.
+
+Ask for user action only when required for external dataset access or other unavoidable permissions.
+
+Do not claim completion without evidence.
+
+Your goal is to deliver a real, reliable, reproducible industrial anomaly detection platform suitable for a college-level machine learning competition.
+
+# PROJECT NAME: VISIONGUARD
+
+# BEGIN AUTONOMOUS DEVELOPMENT NOW.
