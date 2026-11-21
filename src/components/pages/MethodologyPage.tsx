@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Check, FileDown } from 'lucide-react';
 import { MODEL_REGISTRY } from '../../ml/models';
 import { ModelArchitecture } from '../../types/visionguard';
+import { downloadUserGuidePdf } from '../../utils/userGuidePdf';
 
 const JUDGE_QA: { q: string; a: string }[] = [
   {
@@ -26,32 +28,142 @@ const JUDGE_QA: { q: string; a: string }[] = [
 ];
 
 export const MethodologyPage: React.FC = () => {
-  const [section, setSection] = useState<'methodology' | 'competition' | 'python_cli'>('methodology');
+  const [section, setSection] = useState<'user_guide' | 'methodology' | 'competition' | 'python_cli'>('user_guide');
+  const [pdfStatus, setPdfStatus] = useState<'idle' | 'downloading' | 'done'>('idle');
+
+  const handleDownloadPdf = async () => {
+    setPdfStatus('downloading');
+    try {
+      await downloadUserGuidePdf();
+      setPdfStatus('done');
+      setTimeout(() => setPdfStatus('idle'), 3000);
+    } catch {
+      setPdfStatus('idle');
+    }
+  };
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#111827] border border-slate-800 rounded-xl w-fit">
-        {(
-          [
-            ['methodology', 'Scientific Methodology & Algorithms'],
-            ['competition', 'Competition Demo & Judge Q&A'],
-            ['python_cli', 'Python 3.11 / PyTorch / Streamlit Repo'],
-          ] as const
-        ).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setSection(id)}
-            className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${
-              section === id
-                ? 'bg-sky-600 text-white'
-                : 'text-slate-400 hover:text-slate-100'
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#111827] border border-slate-800 rounded-xl w-fit">
+          {(
+            [
+              ['user_guide', 'User Guide'],
+              ['methodology', 'Scientific Methodology & Algorithms'],
+              ['competition', 'Competition Demo & Judge Q&A'],
+              ['python_cli', 'Python 3.11 / PyTorch / Streamlit Repo'],
+            ] as const
+          ).map(([id, label]) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => setSection(id)}
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${
+                section === id
+                  ? 'bg-sky-600 text-white'
+                  : 'text-slate-400 hover:text-slate-100'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={handleDownloadPdf}
+          disabled={pdfStatus === 'downloading'}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium bg-sky-600 text-white hover:bg-sky-500 disabled:opacity-60 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+        >
+          {pdfStatus === 'done' ? (
+            <>
+              <Check className="w-4 h-4" />
+              PDF Downloaded
+            </>
+          ) : (
+            <>
+              <FileDown className="w-4 h-4" />
+              {pdfStatus === 'downloading' ? 'Preparing PDF...' : 'Download User Guide (PDF)'}
+            </>
+          )}
+        </button>
       </div>
+
+      {section === 'user_guide' && (
+        <div className="space-y-6">
+          <section className="bg-[#111827] border border-slate-800 rounded-xl p-6 space-y-4">
+            <h2 className="font-display text-lg font-bold text-slate-50">
+              How to Explain VisionGuard Simply (30-Second Pitch)
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs leading-relaxed">
+              <div className="p-4 rounded-lg bg-[#0B0F17] border border-slate-800 space-y-1.5">
+                <div className="font-semibold text-sky-300">For General Audiences &amp; Friends</div>
+                <p className="text-slate-300">
+                  In a factory producing thousands of glass bottles, metal nuts, or PCBs every hour,
+                  99.9% of parts are good and defects are unpredictable. VisionGuard trains ONLY on
+                  defect-free products. Once it learns what normal looks like, it inspects any new
+                  part, flags Normal vs. Anomalous, and paints a glowing heatmap directly over the
+                  exact scratch, crack, or stain.
+                </p>
+              </div>
+              <div className="p-4 rounded-lg bg-[#0B0F17] border border-slate-800 space-y-1.5">
+                <div className="font-semibold text-sky-300">One-Line Technical Summary for Judges</div>
+                <p className="text-slate-300">
+                  VisionGuard is an unsupervised industrial visual anomaly detection and pixel
+                  localization platform that systematically compares reconstruction-based
+                  (Autoencoder) and feature-based (PaDiM, PatchCore, FastFlow) engines across MVTec
+                  AD, VisA, MVTec LOCO AD, and MVTec AD 2 under strict zero-leakage protocols.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-[#111827] border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="font-display text-base font-semibold text-slate-100">
+              Step-by-Step Workflow Across All 7 Pages
+            </h3>
+            <ol className="space-y-3 text-xs text-slate-300 leading-relaxed list-decimal pl-5">
+              <li>
+                <strong className="text-slate-100">Executive Overview:</strong> Starts honestly with
+                &ldquo;Not evaluated&rdquo; (zero fabricated metrics). Click &ldquo;Train &amp;
+                Evaluate 4 Models&rdquo; to benchmark Autoencoder, PaDiM, PatchCore, and FastFlow
+                live on MVTec AD <code className="text-slate-200">bottle</code>.
+              </li>
+              <li>
+                <strong className="text-slate-100">Model Laboratory:</strong> Compare maturity
+                badges (<strong className="text-sky-300">Optimized</strong> PatchCore,{' '}
+                <strong className="text-emerald-300">Stable</strong> PaDiM &amp; Autoencoder,{' '}
+                <strong className="text-amber-300">Experimental</strong> FastFlow), filter by
+                maturity tier or dataset, click any row for live ROC/PR curves and Confusion
+                Matrices, and export JSON checkpoints or CSV tables.
+              </li>
+              <li>
+                <strong className="text-slate-100">Live Inspection:</strong> Pick an unseen test
+                image (<code className="text-slate-200">OK</code> /{' '}
+                <code className="text-slate-200">DEF</code>) or upload your own PNG/JPG photo, click
+                &ldquo;Run Live Inspection&rdquo;, adjust the overlay slider, review the decoupled
+                Image Quality Assessment panel, and download a JSON inspection report.
+              </li>
+              <li>
+                <strong className="text-slate-100">Dataset Explorer:</strong> Browse MVTec AD, VisA,
+                MVTec LOCO AD, MVTec AD 2, and BTAD metadata, or click &ldquo;Import Real Local
+                Folder&rdquo; to validate and evaluate official downloaded archives from disk.
+              </li>
+              <li>
+                <strong className="text-slate-100">Research Experiments:</strong> Execute Exp B
+                (Data Efficiency 10%–100%), Exp C (6 camera degradations), Exp D (PatchCore
+                coreset/layer/resolution ablations), and Exp E/F (Cross-Dataset &amp; LOCO AD
+                structural vs. logical difficulty analysis).
+              </li>
+              <li>
+                <strong className="text-slate-100">Inspection History &amp; Methodology:</strong>{' '}
+                Audit metadata-only local inspection logs, export CSVs, and use the Competition
+                Demo &amp; Judge Q&amp;A tab or the PDF download button above during presentations.
+              </li>
+            </ol>
+          </section>
+        </div>
+      )}
 
       {section === 'methodology' && (
         <div className="space-y-6">

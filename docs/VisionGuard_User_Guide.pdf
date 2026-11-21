@@ -1,0 +1,396 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 5872 >>
+stream
+0.06 0.09 0.16 rg
+50.00 687.89 495.28 112.00 re f
+0.05 0.65 0.91 rg
+50.00 796.89 495.28 3.0 re f
+0.56 0.84 0.98 rg
+BT /F2 9 Tf 68.00 773.89 Td (USER GUIDE & COMPETITION SHOWCASE PLAYBOOK) Tj ET
+0.98 0.99 1.00 rg
+BT /F2 22 Tf 68.00 745.89 Td (VisionGuard) Tj ET
+0.82 0.87 0.93 rg
+BT /F1 10.5 Tf 68.00 725.89 Td (Intelligent Industrial Defect Detection, Anomaly Localization & Visual Inspection Platform) Tj ET
+0.58 0.66 0.76 rg
+BT /F1 8.5 Tf 68.00 705.89 Td (Models: Autoencoder \(Stable\) | PaDiM \(Stable\) | PatchCore \(Optimized\) | FastFlow \(Experimental\)) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 659.89 Td (1. How to Explain VisionGuard Simply \(30-Second Pitch\)) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 653.89 m 545.28 653.89 l S
+0.95 0.97 0.99 rg
+50.00 530.98 495.28 112.91 re f
+0.78 0.85 0.92 RG 0.8 w
+50.00 530.98 495.28 112.91 re S
+0.04 0.39 0.65 rg
+BT /F2 9.2 Tf 62.00 628.89 Td (For General Audiences, Friends & Non-Technical Stakeholders) Tj ET
+0.14 0.19 0.26 rg
+BT /F1 9.3 Tf 62.00 614.89 Td (Imagine a factory producing thousands of glass bottles, metal nuts, or circuit boards every hour.) Tj ET
+BT /F1 9.3 Tf 62.00 601.40 Td (99.9% of parts are good, and defects are unpredictable -- a crack today, an oil stain tomorrow, a) Tj ET
+BT /F1 9.3 Tf 62.00 587.92 Td (bent pin next week. Standard AI needs thousands of broken examples to learn, which factories do not) Tj ET
+BT /F1 9.3 Tf 62.00 574.43 Td (have. VisionGuard flips the problem: we train the AI ONLY on good, defect-free products. Once it) Tj ET
+BT /F1 9.3 Tf 62.00 560.95 Td (learns what 'normal' looks like, it inspects any new product, flags whether it is Normal or) Tj ET
+BT /F1 9.3 Tf 62.00 547.46 Td (Defective, and paints a glowing heatmap directly onto the exact scratch, crack, or stain.) Tj ET
+0.95 0.97 0.99 rg
+50.00 437.04 495.28 85.94 re f
+0.78 0.85 0.92 RG 0.8 w
+50.00 437.04 495.28 85.94 re S
+0.04 0.39 0.65 rg
+BT /F2 9.2 Tf 62.00 507.98 Td (One-Line Technical Summary \(For Competition Judges & Faculty\)) Tj ET
+0.14 0.19 0.26 rg
+BT /F1 9.3 Tf 62.00 493.98 Td (VisionGuard is an unsupervised industrial visual anomaly detection and pixel-level localization) Tj ET
+BT /F1 9.3 Tf 62.00 480.50 Td (platform that systematically benchmarks reconstruction-based \(Autoencoder\) and feature-based \(PaDiM,) Tj ET
+BT /F1 9.3 Tf 62.00 467.01 Td (PatchCore, FastFlow\) engines across MVTec AD, VisA, MVTec LOCO AD, and MVTec AD 2 under strict zero-) Tj ET
+BT /F1 9.3 Tf 62.00 453.52 Td (leakage scientific evaluation protocols.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 419.04 Td (2. Step-by-Step User Guide \(All 7 Dashboard Pages\)) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 413.04 m 545.28 413.04 l S
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 396.04 Td (Page 1: Executive Overview) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 382.04 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 382.04 Td (Zero Fabricated Metrics: When opened fresh, metrics honestly display 'Not evaluated' until real) Tj ET
+BT /F1 9.4 Tf 64.00 368.69 Td (models are trained and evaluated.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 352.84 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 352.84 Td (One-Click Baseline: Click 'Train & Evaluate 4 Models' \(or 'Run Core Benchmark' in the top bar\) to) Tj ET
+BT /F1 9.4 Tf 64.00 339.50 Td (train Autoencoder, PaDiM, PatchCore, and FastFlow live on MVTec AD bottle and populate real Image) Tj ET
+BT /F1 9.4 Tf 64.00 326.15 Td (AUROC, Pixel AUROC, and F1 charts.) Tj ET
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 307.30 Td (Page 2: Model Laboratory \(with Engine Maturity Badges\)) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 293.30 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 293.30 Td (Maturity Catalog: Inspect and select from four engines tagged by maturity: PatchCore \(Optimized --) Tj ET
+BT /F1 9.4 Tf 64.00 279.95 Td (coreset memory bank tuned for speed & recall\), PaDiM \(Stable -- per-patch Mahalanobis Gaussian\),) Tj ET
+BT /F1 9.4 Tf 64.00 266.60 Td (Convolutional Autoencoder \(Stable -- reconstruction baseline\), and FastFlow \(Experimental -- 2D) Tj ET
+BT /F1 9.4 Tf 64.00 253.26 Td (normalizing flow density estimator\).) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 237.41 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 237.41 Td (Train & Compare: Choose Dataset, Category, Input Resolution \(64-128px\), and Random Seed, then click) Tj ET
+BT /F1 9.4 Tf 64.00 224.06 Td ('Train & Evaluate' or 'Compare All 4 Models'. Filter benchmark rows by Maturity Tier or Dataset,) Tj ET
+BT /F1 9.4 Tf 64.00 210.71 Td (click any row to inspect live ROC, Precision-Recall, Confusion Matrix, and Training Loss plots, or) Tj ET
+BT /F1 9.4 Tf 64.00 197.36 Td (export checkpoints \(JSON\) and benchmark tables \(CSV\).) Tj ET
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 178.52 Td (Page 3: Live Inspection \(Main Demonstration Screen\)) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 164.52 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 164.52 Td (Select or Upload: Choose a dataset, category, and trained model \(click 'Train Model First' if) Tj ET
+BT /F1 9.4 Tf 64.00 151.17 Td (untrained\). Pick any unseen test image \('OK' or 'DEF'\) or click 'Upload PNG / JPG' to inspect a) Tj ET
+BT /F1 9.4 Tf 64.00 137.82 Td (custom image.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 121.97 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 121.97 Td (4 Visual Outputs: Click 'Run Live Inspection' to inspect \(1\) Preprocessed Input, \(2\) Pixel-Level) Tj ET
+BT /F1 9.4 Tf 64.00 108.62 Td (Anomaly Heatmap, \(3\) Blended Localization Overlay with live opacity slider, and \(4\) Autoencoder) Tj ET
+BT /F1 9.4 Tf 64.00 95.28 Td (Reconstruction or Ground-Truth Mask.) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+50.00 38.00 m 545.28 38.00 l S
+0.45 0.50 0.58 rg
+BT /F1 8 Tf 50.00 26.00 Td (VisionGuard User Guide & Competition Playbook) Tj ET
+BT /F1 8 Tf 493.28 26.00 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 7743 >>
+stream
+0.40 0.45 0.55 rg
+BT /F1 8.5 Tf 50.00 807.89 Td (VisionGuard -- Industrial Visual Anomaly Detection Platform | User Guide & Judge Playbook) Tj ET
+0.85 0.88 0.92 RG 0.6 w
+50.00 801.89 m 545.28 801.89 l S
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 777.89 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 777.89 Td (Decoupled Image Quality Audit: Laplacian blur variance, luminance, RMS contrast, resolution, and 8x8) Tj ET
+BT /F1 9.4 Tf 64.00 764.54 Td (JPEG blockiness are evaluated independently so a blurry or dark camera feed raises a reliability) Tj ET
+BT /F1 9.4 Tf 64.00 751.19 Td (warning instead of a false defect verdict. Click 'Download Inspection Report' to save a JSON audit.) Tj ET
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 732.35 Td (Page 4: Dataset Explorer & Local Real Dataset Import) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 718.35 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 718.35 Td (Independent Multi-Dataset Registry: Explore official sources, licenses \(CC BY-NC-SA 4.0 / CC BY 4.0\),) Tj ET
+BT /F1 9.4 Tf 64.00 705.00 Td (citations, and sample/mask galleries for MVTec AD, VisA, MVTec LOCO AD, MVTec AD 2, and optional) Tj ET
+BT /F1 9.4 Tf 64.00 691.65 Td (BTAD.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 675.80 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 675.80 Td (Importing Official Datasets: Click 'Import Real Local Folder' and select any downloaded MVTec AD /) Tj ET
+BT /F1 9.4 Tf 64.00 662.45 Td (VisA / LOCO AD / AD 2 category folder from disk. VisionGuard automatically checks image readability,) Tj ET
+BT /F1 9.4 Tf 64.00 649.11 Td (mask alignment, and split leakage.) Tj ET
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 630.26 Td (Page 5: Research Experiments \(Controlled Scientific Studies\)) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 616.26 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 616.26 Td (Exp B -- Data Efficiency: Subsamples 10%, 25%, 50%, and 100% of normal training images) Tj ET
+BT /F1 9.4 Tf 64.00 602.91 Td (deterministically to quantify accuracy under scarce factory data.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 587.06 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 587.06 Td (Exp C -- Robustness: Applies 6 industrial degradations \(Gaussian noise, blur, brightness shift,) Tj ET
+BT /F1 9.4 Tf 64.00 573.71 Td (contrast shift, JPEG compression, resize/resample\) at severities 1, 3, and 5 without corrupting) Tj ET
+BT /F1 9.4 Tf 64.00 560.37 Td (ground-truth masks.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 544.52 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 544.52 Td (Exp D -- PatchCore Ablations: Varies Coreset Ratio \(10%-100%\), Feature Layers \(L1, L2, L1+L2,) Tj ET
+BT /F1 9.4 Tf 64.00 531.17 Td (L1+L2+L3\), and Resolution to show memory-bank vs. latency vs. AUROC trade-offs.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 515.32 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 515.32 Td (Exp E/F -- Cross-Dataset & Category Difficulty: Evaluates 8 categories across 4 datasets) Tj ET
+BT /F1 9.4 Tf 64.00 501.97 Td (independently and demonstrates why MVTec LOCO AD logical anomalies \(missing/extra parts\) are harder) Tj ET
+BT /F1 9.4 Tf 64.00 488.63 Td (for patch detectors than surface defects.) Tj ET
+0.10 0.14 0.22 rg
+BT /F2 10.5 Tf 50.00 469.78 Td (Pages 6 & 7: Inspection History & Methodology / Competition Kit) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 455.78 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 455.78 Td (Inspection History: Persists metadata-only inspection logs locally \(no unnecessary raw image) Tj ET
+BT /F1 9.4 Tf 64.00 442.43 Td (retention\) with search, Normal/Anomalous filtering, CSV export, and delete/clear controls.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 426.58 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 426.58 Td (Methodology & Demo: Includes full algorithm documentation, scientific validity guarantees, 5-minute) Tj ET
+BT /F1 9.4 Tf 64.00 413.23 Td (demo script, 10-minute presentation outline, Judge Q&A, and Python 3.11 / PyTorch CLI instructions.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 391.39 Td (3. Winning 5-Minute Live Demo Flow for Competition Judges) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 385.39 m 545.28 385.39 l S
+0.10 0.15 0.24 rg
+50.00 355.39 495.28 20.00 re f
+0.97 0.98 1.00 rg
+BT /F2 8.5 Tf 56.00 361.89 Td (Time) Tj ET
+BT /F2 8.5 Tf 114.00 361.89 Td (Dashboard Page) Tj ET
+BT /F2 8.5 Tf 206.00 361.89 Td (Live Actions) Tj ET
+BT /F2 8.5 Tf 351.00 361.89 Td (Key Talking Points for Judges) Tj ET
+0.84 0.87 0.91 RG 0.5 w
+50.00 298.19 m 545.28 298.19 l S
+0.14 0.19 0.27 rg
+BT /F2 8.6 Tf 56.00 343.39 Td (0:00-0:45) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 114.00 343.39 Td (Executive Overview) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 206.00 343.39 Td (Point out 'Not evaluated') Tj ET
+BT /F1 8.6 Tf 206.00 331.59 Td (before clicking anything.) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 351.00 343.39 Td (Emphasize scientific honesty: zero) Tj ET
+BT /F1 8.6 Tf 351.00 331.59 Td (hardcoded or fabricated metrics. Every) Tj ET
+BT /F1 8.6 Tf 351.00 319.79 Td (score is measured live on unseen test) Tj ET
+BT /F1 8.6 Tf 351.00 307.99 Td (splits.) Tj ET
+0.96 0.97 0.99 rg
+50.00 240.99 495.28 57.20 re f
+0.84 0.87 0.91 RG 0.5 w
+50.00 240.99 m 545.28 240.99 l S
+0.14 0.19 0.27 rg
+BT /F2 8.6 Tf 56.00 286.19 Td (0:45-1:45) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 114.00 286.19 Td (Model Laboratory) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 206.00 286.19 Td (Click 'Compare All 4 Models') Tj ET
+BT /F1 8.6 Tf 206.00 274.39 Td (on MVTec AD bottle; click) Tj ET
+BT /F1 8.6 Tf 206.00 262.59 Td (PatchCore row.) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 351.00 286.19 Td (Highlight maturity badges \(Optimized,) Tj ET
+BT /F1 8.6 Tf 351.00 274.39 Td (Stable, Experimental\), live ROC/PR curves,) Tj ET
+BT /F1 8.6 Tf 351.00 262.59 Td (Pixel AUROC, AUPRO, and normal-validation-) Tj ET
+BT /F1 8.6 Tf 351.00 250.79 Td (only threshold \(mean + 2.5*std\).) Tj ET
+0.84 0.87 0.91 RG 0.5 w
+50.00 183.79 m 545.28 183.79 l S
+0.14 0.19 0.27 rg
+BT /F2 8.6 Tf 56.00 228.99 Td (1:45-3:00) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 114.00 228.99 Td (Live Inspection) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 206.00 228.99 Td (Inspect a DEF sample; adjust) Tj ET
+BT /F1 8.6 Tf 206.00 217.19 Td (Overlay Intensity; switch to) Tj ET
+BT /F1 8.6 Tf 206.00 205.39 Td (Autoencoder; download JSON) Tj ET
+BT /F1 8.6 Tf 206.00 193.59 Td (report.) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 351.00 228.99 Td (Show real-time pixel localization,) Tj ET
+BT /F1 8.6 Tf 351.00 217.19 Td (Autoencoder reconstruction, and decoupled) Tj ET
+BT /F1 8.6 Tf 351.00 205.39 Td (Image Quality Assessment preventing camera) Tj ET
+BT /F1 8.6 Tf 351.00 193.59 Td (blur from causing false defect alarms.) Tj ET
+0.96 0.97 0.99 rg
+50.00 114.79 495.28 69.00 re f
+0.84 0.87 0.91 RG 0.5 w
+50.00 114.79 m 545.28 114.79 l S
+0.14 0.19 0.27 rg
+BT /F2 8.6 Tf 56.00 171.79 Td (3:00-4:15) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 114.00 171.79 Td (Research Experiments) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 206.00 171.79 Td (Run Exp B \(Data Efficiency\) or) Tj ET
+BT /F1 8.6 Tf 206.00 159.99 Td (Exp C \(Robustness\), or show) Tj ET
+BT /F1 8.6 Tf 206.00 148.19 Td (Exp E/F LOCO AD breakdown.) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 351.00 171.79 Td (Answer the core research question) Tj ET
+BT /F1 8.6 Tf 351.00 159.99 Td (quantitatively: compare scarce normal data) Tj ET
+BT /F1 8.6 Tf 351.00 148.19 Td (\(10%-100%\), image corruptions, and) Tj ET
+BT /F1 8.6 Tf 351.00 136.39 Td (structural vs. logical anomaly failure) Tj ET
+BT /F1 8.6 Tf 351.00 124.59 Td (modes.) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+50.00 38.00 m 545.28 38.00 l S
+0.45 0.50 0.58 rg
+BT /F1 8 Tf 50.00 26.00 Td (VisionGuard User Guide & Competition Playbook) Tj ET
+BT /F1 8 Tf 493.28 26.00 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 6270 >>
+stream
+0.40 0.45 0.55 rg
+BT /F1 8.5 Tf 50.00 807.89 Td (VisionGuard -- Industrial Visual Anomaly Detection Platform | User Guide & Judge Playbook) Tj ET
+0.85 0.88 0.92 RG 0.6 w
+50.00 801.89 m 545.28 801.89 l S
+0.84 0.87 0.91 RG 0.5 w
+50.00 708.89 m 545.28 708.89 l S
+0.14 0.19 0.27 rg
+BT /F2 8.6 Tf 56.00 765.89 Td (4:15-5:00) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 114.00 765.89 Td (Dataset Explorer &) Tj ET
+BT /F1 8.6 Tf 114.00 754.09 Td (Methodology) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 206.00 765.89 Td (Show 'Import Real Local) Tj ET
+BT /F1 8.6 Tf 206.00 754.09 Td (Folder' and Python 3.11 /) Tj ET
+BT /F1 8.6 Tf 206.00 742.29 Td (PyTorch CLI tab.) Tj ET
+0.14 0.19 0.27 rg
+BT /F1 8.6 Tf 351.00 765.89 Td (Explain verification fixtures vs. official) Tj ET
+BT /F1 8.6 Tf 351.00 754.09 Td (datasets, strict CC BY-NC-SA 4.0 license) Tj ET
+BT /F1 8.6 Tf 351.00 742.29 Td (compliance, and full PyTorch) Tj ET
+BT /F1 8.6 Tf 351.00 730.49 Td (WideResNet-50-2 / Streamlit / pytest) Tj ET
+BT /F1 8.6 Tf 351.00 718.69 Td (codebase.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 692.89 Td (4. Real-World Industrial Use Cases to Showcase) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 686.89 m 545.28 686.89 l S
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 672.89 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 672.89 Td (Electronics & PCB Quality \(VisA pcb1\): Detects missing SMD components, trace scratches, and solder) Tj ET
+BT /F1 9.4 Tf 64.00 659.54 Td (anomalies without enumerating every possible board fault.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 643.69 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 643.69 Td (Precision Metal & Automotive \(MVTec AD metal_nut, screw, sheet_metal\): Localizes micro-cracks,) Tj ET
+BT /F1 9.4 Tf 64.00 630.35 Td (surface dents, and oil contamination on machined brushed steel.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 614.50 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 614.50 Td (Pharmaceutical & Bottling Lines \(capsule, bottle\): Flags chipped bottle rims, capsule discoloration,) Tj ET
+BT /F1 9.4 Tf 64.00 601.15 Td (and packaging contamination at inspection speed.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 585.30 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 585.30 Td (Kit & Assembly Completeness \(MVTec LOCO AD\): Illustrates where local appearance detectors must be) Tj ET
+BT /F1 9.4 Tf 64.00 571.95 Td (combined with global count and layout reasoning.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 550.11 Td (5. Top 5 Tough Judge Questions & Crisp Answers) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 544.11 m 545.28 544.11 l S
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 530.11 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 530.11 Td (Q1: Are these real ML models or pre-saved demo outputs?: 100% real. Before training, metrics read) Tj ET
+BT /F1 9.4 Tf 64.00 516.76 Td ('Not evaluated'. Clicking Train executes real Adam backpropagation \(Autoencoder\), Mahalanobis) Tj ET
+BT /F1 9.4 Tf 64.00 503.41 Td (covariance inversion \(PaDiM\), greedy k-center coreset sampling + k-NN \(PatchCore\), and invertible) Tj ET
+BT /F1 9.4 Tf 64.00 490.06 Td (affine coupling flow fitting \(FastFlow\).) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 474.21 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 474.21 Td (Q2: Why not just train a standard defect classifier \(CNN/YOLO\)?: Real factories have abundant healthy) Tj ET
+BT /F1 9.4 Tf 64.00 460.87 Td (parts and rare, unpredictable defect types. Supervised classifiers fail on unseen defects; normal-) Tj ET
+BT /F1 9.4 Tf 64.00 447.52 Td (only anomaly detection flags any deviation from healthy appearance.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 431.67 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 431.67 Td (Q3: Is the anomaly score a probability like 85%?: No. Raw scores are unbounded reconstruction errors,) Tj ET
+BT /F1 9.4 Tf 64.00 418.32 Td (Mahalanobis distances, or k-NN distances. VisionGuard never calls them probabilities and calibrates) Tj ET
+BT /F1 9.4 Tf 64.00 404.97 Td (thresholds strictly on held-out normal validation images.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 389.13 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 389.13 Td (Q4: What if the factory camera blurs or lighting dims?: Our decoupled Image Quality Assessment checks) Tj ET
+BT /F1 9.4 Tf 64.00 375.78 Td (blur, illumination, contrast, resolution, and JPEG blockiness independently, warning the operator) Tj ET
+BT /F1 9.4 Tf 64.00 362.43 Td (without misclassifying camera faults as broken parts.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 9.5 Tf 54.00 346.58 Td (-) Tj ET
+0.16 0.20 0.28 rg
+BT /F1 9.4 Tf 64.00 346.58 Td (Q5: What is the biggest scientific limitation of your system?: Local patch-based methods excel on) Tj ET
+BT /F1 9.4 Tf 64.00 333.23 Td (structural surface defects but degrade on MVTec LOCO AD logical anomalies \(e.g., missing item in a) Tj ET
+BT /F1 9.4 Tf 64.00 319.89 Td (box where every local patch looks normal\). Measuring and reporting this honestly is a core research) Tj ET
+BT /F1 9.4 Tf 64.00 306.54 Td (contribution.) Tj ET
+0.05 0.45 0.72 rg
+BT /F2 13 Tf 50.00 284.69 Td (6. Launching Locally & Pushing to GitHub) Tj ET
+0.82 0.87 0.92 RG 0.8 w
+50.00 278.69 m 545.28 278.69 l S
+0.08 0.11 0.17 rg
+50.00 130.69 495.28 138.00 re f
+0.88 0.93 0.98 rg
+BT /F3 8.5 Tf 62.00 254.69 Td (# 1. Run Live Interactive Web Platform \(Port 3000\)) Tj ET
+BT /F3 8.5 Tf 62.00 242.49 Td (npm install && npm run dev) Tj ET
+BT /F3 8.5 Tf 62.00 230.29 Td () Tj ET
+BT /F3 8.5 Tf 62.00 218.09 Td (# 2. Run Python 3.11 + PyTorch WideResNet-50-2 + Streamlit Suite) Tj ET
+BT /F3 8.5 Tf 62.00 205.89 Td (cd python && python -m venv .venv && pip install -r requirements.txt) Tj ET
+BT /F3 8.5 Tf 62.00 193.69 Td (python -m src.training.train --model patchcore --dataset mvtec_ad --category bottle) Tj ET
+BT /F3 8.5 Tf 62.00 181.49 Td (pytest -q && streamlit run dashboard/app.py) Tj ET
+BT /F3 8.5 Tf 62.00 169.29 Td () Tj ET
+BT /F3 8.5 Tf 62.00 157.09 Td (# 3. Push Repository to GitHub \(from authenticated machine\)) Tj ET
+BT /F3 8.5 Tf 62.00 144.89 Td (git push -u origin main) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+50.00 38.00 m 545.28 38.00 l S
+0.45 0.50 0.58 rg
+BT /F1 8 Tf 50.00 26.00 Td (VisionGuard User Guide & Competition Playbook) Tj ET
+BT /F1 8 Tf 493.28 26.00 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000134 00000 n 
+0000000231 00000 n 
+0000000333 00000 n 
+0000000428 00000 n 
+0000006352 00000 n 
+0000006504 00000 n 
+0000014299 00000 n 
+0000014451 00000 n 
+0000020774 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+20928
+%%EOF
